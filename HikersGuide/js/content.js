@@ -9,36 +9,47 @@
 
  	var responseObject = JSON.parse(xhr.responseText);
 
- 	var newContent = '';
+// Location Section ===================================================================
+ 	var newLocations = '<ul>';
+ 	var locSection = document.querySelector('#locations');
 
+ 	if(locSection){
  	for (var i = 0; i < responseObject.locations.length; i++){
 
- 		newContent += '<a href="">';
- 		newContent += '<h2>'+ responseObject.locations[i].city+ responseObject.locations[i].state+'</h2>';
- 		newContent += '<h4>'+ responseObject.locations[i].title+'</h4>';
- 		newContent += '<p>' + responseObject.locations[i].text+'</p>';
- 		newContent += '</a>';
+ 		newLocations += '<li>'
+ 		newLocations += '<a href=""></a>';
+ 		newLocations += '<h2>'+ responseObject.locations[i].city+ responseObject.locations[i].state+'</h2>';
+ 		newLocations += '<h4>'+ responseObject.locations[i].title+'</h4>';
+ 		newLocations += '<p>' + responseObject.locations[i].text+'</p>';
+ 		newLocations += '</li>';
 		}
- 		var content = document.querySelector('#locations');
- 		content.innerHTML = newContent;
- 	
-    
- 	var newPosts ='';
+ 		
+ 		locSection.innerHTML = newLocations + '</ul>';
+ 	}
 
+// Blog Section =======================================================================
+ 	var newBlogs ='<ul>';
+ 	var blogSection = document.querySelector('#posts');
+
+ 	if(blogSection){
  	for(var i =0; i < responseObject.posts.length; i++){
 
- 		newPosts += '<li>';
- 		newPosts +='<img src="'+ responseObject.posts[i].imageURL+'" alt="picture">';
- 		newPosts +='<h3>'+responseObject.posts[i].title+'</h3>';
- 		newPosts +='<p><strong>'+responseObject.posts[i].subtitle+'</strong></p>';
- 		newPosts +='<a href="'+responseObject.posts[i].moreLink+'"></a>';
- 		newPosts += '</li>';
+ 		newBlogs += '<li>';
+ 		newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
+ 		newBlogs +='<h3>'+responseObject.posts[i].title+'</h3>';
+ 		newBlogs +='<p><strong>'+responseObject.posts[i].subtitle+'</strong></p>';
+ 		newBlogs +='<a href="'+responseObject.posts[i].moreLink+'"></a>';
+ 		newBlogs += '</li>';
  		}
- 		var content = document.querySelector('#posts');
- 		content.innerHTML = newPosts;
- 	
- 	var newEvents = '';
+ 		
+ 		blogSection.innerHTML = newBlogs + '</ul>';
+ 	}
 
+// Event Section =======================================================================
+ 	var newEvents = '';
+ 	var eventSection = document.querySelector('#events');
+
+ 	if(eventSection){
  	for(var i =0; i < responseObject.events.length; i++){
 
  		newEvents += '<li>';
@@ -46,12 +57,16 @@
  		newEvents += '<h4>'+responseObject.events[i].title+'</h4>';
  		newEvents += '<p>'+responseObject.events[i].text+'</p>';
  		newEvents += '</li>';
+ 		}
+ 		
+ 		eventSection.innerHTML = newEvents;
  	}
- 		var content = document.querySelector('#events');
- 		content.innerHTML = newEvents;
 
+// Hikers Section =======================================================================
  	var newHikers ='';
+ 	var hikers = document.querySelector('#hikers');
 
+ 	if(hikers)
  	for(var i =0; i < responseObject.hikers.length; i++){
 
  		newHikers += '<li>';
@@ -60,9 +75,12 @@
  		newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
  		newHikers += '</li>';
  	}
-		 var hikers = document.querySelector('#hikers');
+		 
 		 hikers.innerHTML = newHikers;
 
+// about Section =======================================================================
+	var about = document.querySelector('#about');
+	if(about){
 	var aboutSection ='';
 
 		aboutSection += '<h3>About</h3>';
@@ -70,8 +88,8 @@
 		aboutSection += '<p>'+responseObject.about.text+'</p>';
 		aboutSection += '<p>'+responseObject.about.copyright+'</p>';
 
-		var about = document.querySelector('#about');
 		about.innerHTML = aboutSection;
+	}
 	
   }
   xhr.open('GET', 'https://jbonline.bitbucket.io/data/hikersguide.json', true);
