@@ -3,5 +3,24 @@
 ================================================== */
 
 html {
-	
+	font-size: 100%;
+}
+body{
+	font: 2em/1.5 ;
+}
+section {
+ padding: 4rem;
+}
+img {
+	width: 100%;
+}
+#events li{
+	border: 2px green;
+	width: calc(100%/1);
+	padding: 2rem;
+	margin-bottom: 1rem;
+	float: left;
+}
+#locations li{
+	padding: 1rem;
 }

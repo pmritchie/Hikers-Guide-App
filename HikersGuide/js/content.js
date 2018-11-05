@@ -29,7 +29,7 @@
 
 // Blog Section =======================================================================
  	var newBlogs ='<ul>';
- 	var blogSection = document.querySelector('#posts');
+ 	var blogSection = document.querySelector('#blogs');
 
  	if(blogSection){
  	for(var i =0; i < responseObject.posts.length; i++){
@@ -42,11 +42,11 @@
  		newBlogs += '</li>';
  		}
  		
- 		blogSection.innerHTML = newBlogs + '</ul>';
+ 		blogSection.insertAdjacentHTML('beforeend', newBlogs + '</ul>');
  	}
 
 // Event Section =======================================================================
- 	var newEvents = '';
+ 	var newEvents = '<ul>';
  	var eventSection = document.querySelector('#events');
 
  	if(eventSection){
@@ -59,24 +59,26 @@
  		newEvents += '</li>';
  		}
  		
- 		eventSection.innerHTML = newEvents;
+ 		eventSection.insertAdjacentHTML('beforeend', newEvents + '</ul>');
  	}
 
 // Hikers Section =======================================================================
- 	var newHikers ='';
+ 	
  	var hikers = document.querySelector('#hikers');
-
- 	if(hikers)
+ 	var newHikers = '<ul>';
+ 	if(hikers){
  	for(var i =0; i < responseObject.hikers.length; i++){
 
  		newHikers += '<li>';
- 		newHikers += '<img src="'+responseObject.hikers[i].imageURL+'" alt="picture">';
+ 		newHikers += '<p><img src="'+responseObject.hikers[i].imageURL+'" alt="picture"></p>';
  		newHikers += '<p>'+responseObject.hikers[i].lastname+', '+responseObject.hikers[i].firstname+'</p>';
  		newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
  		newHikers += '</li>';
  	}
+ 	hikers.insertAdjacentHTML('beforeend', newHikers + '</ul>') = newHikers;
+ }
 		 
-		 hikers.innerHTML = newHikers;
+		 
 
 // about Section =======================================================================
 	var about = document.querySelector('#about');
@@ -90,6 +92,38 @@
 
 		about.innerHTML = aboutSection;
 	}
+
+// Events Page Date Selector =============================================================
+	
+	
+	var eventSelection = document.querySelector('#eventSelection')
+	if(eventSelection){
+		var eventSelector = '<ul>';
+		for (var i = 0; i < responseObject.events.length; i++) {
+			
+			eventSelector +=	'<li><button>'+responseObject.events[i].date+'</button></li>'
+
+		}
+		eventSelector += '</ul>';
+		eventSelector += '<ul>';
+		for (var i = 0; i < responseObject.events.length; i++) {
+			eventSelector += '<li>';
+			eventSelector += '<h2>'+responseObject.events[i].title+'</h2>';
+			eventSelector += '<p>'+responseObject.events[i].text+'</p>';
+			eventSelector += '<dl>';
+			eventSelector += '<dt>Sponser</dt>';
+			eventSelector += '<dd>'+responseObject.events[i].sponsor+'</dd>';
+			eventSelector += '<dt>Date</dt>';
+			eventSelector += '<dd>'+responseObject.events[i].date+'</dd>';
+			eventSelector += '<dt>Location</dt>';
+			eventSelector += '<dd>'+responseObject.events[i].location+', '+responseObject.events[i].state+'</dd>';
+			eventSelector += '</dl>';
+			eventSelector += '<button>DETAILS</button>';
+		}
+		eventSelection.insertAdjacentHTML('beforeend', eventSelector + '</ul>')
+	}
+
+	var events
 	
   }
   xhr.open('GET', 'https://jbonline.bitbucket.io/data/hikersguide.json', true);
