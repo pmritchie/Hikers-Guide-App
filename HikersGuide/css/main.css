@@ -3,24 +3,117 @@
 ================================================== */
 
 html {
-	font-size: 100%;
+	font-size: 62.5%;
 }
-body{
-	font: 2em/1.5 ;
+body {
+	font: 1.4em/1.5 "Program OT Bold", Arial, sans-serif;
+	color: #888888;
+	background: #111111;
+
+}
+h2 {
+	text-transform: uppercase;
+	font: 3.5em/1.5 "Program OT Black", Arial, sans-serif;
+	color: #EEEEEE;
+}
+h3 {
+	text-transform: uppercase;
+	font:2.4em/1.5 "Georgia Bold", Arial, sans-serif;
+	color: #CCCCCC;
+}
+h4 {
+	text-transform: uppercase;
+	font: 1.8em/1.5 "Program OT Bold", Arial, sans-serif;
+	color: #AAAAAA;
+}
+h5 {
+	text-transform: uppercase;
+	font: 1.4em/1.5 "Program OT Bold", Arial, sans-serif;
+	color: #AAAAAA;
 }
 section {
- padding: 4rem;
+ padding: 2rem;
+ border: 3px solid yellow;
+}
+
+.wrapper {
+	padding: 3rem;
+	border: 2px solid blue;
+}
+.wrapper, header{
+	max-width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+}
+section::after, .wrapper::after, header::after{
+	content:'';
+	display: block;
+	clear: both;
 }
 img {
 	width: 100%;
 }
-#events li{
-	border: 2px green;
-	width: calc(100%/1);
+
+/* Header ======================= */
+header h1{
+	float: left;
+}
+nav{
+	float: right;
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
+}
+nav li {
+	display: inline-block;
+}
+nav a {
+	display: block;
+	padding: 1rem;
+}
+
+/* Locations ======================= */
+
+#locations {
+
+	background: url('../images/hikers1001.jpg') no-repeat center center;
+	background-size: cover;
+	position: relative;
+	height: 100rem;
+	width: 100%;
+}
+#locations .wrapper{
+	background: #111111
+	height: 20rem;
+	width: 50%;
+	float: right;
+}
+#locations h2{
+	font-size: 1.2em;
+}
+
+#locations li{ 
+	display: inline-block;
+	position: relative;
+	border-left: 2px #1ABC9C;
+	float: right;
+
+}
+#locations li:nth-of-type(1n+2){
+	display: none;
+}
+
+
+
+
+#events li {
+	border: 2px solid green;
+	width: calc(100%/3);
 	padding: 2rem;
 	margin-bottom: 1rem;
 	float: left;
+
 }
 #locations li{
+
 	padding: 1rem;
 }

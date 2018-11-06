@@ -11,14 +11,15 @@
 
 // Location Section ===================================================================
  	var newLocations = '<ul>';
- 	var locSection = document.querySelector('#locations');
+ 	var locSection = document.querySelector('#locations>.wrapper');
+ 	
 
  	if(locSection){
  	for (var i = 0; i < responseObject.locations.length; i++){
 
  		newLocations += '<li>'
  		newLocations += '<a href=""></a>';
- 		newLocations += '<h2>'+ responseObject.locations[i].city+ responseObject.locations[i].state+'</h2>';
+ 		newLocations += '<h2>'+ responseObject.locations[i].city+ ', '+responseObject.locations[i].state+'</h2>';
  		newLocations += '<h4>'+ responseObject.locations[i].title+'</h4>';
  		newLocations += '<p>' + responseObject.locations[i].text+'</p>';
  		newLocations += '</li>';
@@ -26,10 +27,26 @@
  		
  		locSection.innerHTML = newLocations + '</ul>';
  	}
+// Desitnations Page ==================================================================
+	var locPage = document.querySelector('#destinations');
+	var newDesitinations = '<ul>'
+
+	if(locPage){
+		for (var i = 0; i < responseObject.locations.length; i++){
+			newDesitinations += '<li>'
+ 			newDesitinations += '<a href=""></a>';
+ 			newDesitinations += '<h2>'+ responseObject.locations[i].city+ ', '+responseObject.locations[i].state+'</h2>';
+ 			newDesitinations += '<h4>'+ responseObject.locations[i].title+'</h4>';
+ 			newDesitinations += '<p>' + responseObject.locations[i].text+'</p>';
+ 			newDesitinations += '</li>';
+		}
+
+		locPage.innerHTML = newDesitinations + '</ul>';
+	}
 
 // Blog Section =======================================================================
  	var newBlogs ='<ul>';
- 	var blogSection = document.querySelector('#blogs');
+ 	var blogSection = document.querySelector('#blogs>.wrapper');
 
  	if(blogSection){
  	for(var i =0; i < responseObject.posts.length; i++){
@@ -42,7 +59,7 @@
  		newBlogs += '</li>';
  		}
  		
- 		blogSection.insertAdjacentHTML('beforeend', newBlogs + '</ul>');
+ 		blogSection.innerHTML =  newBlogs + '</ul>';
  	}
 
 // Event Section =======================================================================
@@ -53,7 +70,7 @@
  	for(var i =0; i < responseObject.events.length; i++){
 
  		newEvents += '<li>';
- 		newEvents += '<time datetime="'+responseObject.events[i].date+'"></time>';
+ 		newEvents += '<time datetime="'+responseObject.events[i].date+'">'+responseObject.events[i].date+'</time>';
  		newEvents += '<h4>'+responseObject.events[i].title+'</h4>';
  		newEvents += '<p>'+responseObject.events[i].text+'</p>';
  		newEvents += '</li>';
@@ -75,7 +92,7 @@
  		newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
  		newHikers += '</li>';
  	}
- 	hikers.insertAdjacentHTML('beforeend', newHikers + '</ul>') = newHikers;
+ 	hikers.insertAdjacentHTML('beforeend', newHikers + '</ul>');
  }
 		 
 		 
