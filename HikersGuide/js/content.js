@@ -28,20 +28,20 @@
  		locSection.innerHTML = newLocations + '</ul>';
  	}
 // Desitnations Page ==================================================================
+	var newDest = '<ul class="wrapper">';
 	var locPage = document.querySelector('#destinations');
-	var newDesitinations = '<ul>'
 
 	if(locPage){
 		for (var i = 0; i < responseObject.locations.length; i++){
-			newDesitinations += '<li>'
- 			newDesitinations += '<a href=""></a>';
- 			newDesitinations += '<h2>'+ responseObject.locations[i].city+ ', '+responseObject.locations[i].state+'</h2>';
- 			newDesitinations += '<h4>'+ responseObject.locations[i].title+'</h4>';
- 			newDesitinations += '<p>' + responseObject.locations[i].text+'</p>';
- 			newDesitinations += '</li>';
+			newDest += '<li>'
+ 			newDest += '<a href=""></a>';
+ 			newDest += '<h2>'+ responseObject.locations[i].city+ ', '+responseObject.locations[i].state+'</h2>';
+ 			newDest += '<h4>'+ responseObject.locations[i].title+'</h4>';
+ 			newDest += '<p>' + responseObject.locations[i].text+'</p>';
+ 			newDest += '</li>';
 		}
 
-		locPage.innerHTML = newDesitinations + '</ul>';
+		locPage.insertAdjacentHTML('beforeend', newDest + '</ul>');
 	}
 
 // Blog Section =======================================================================
@@ -55,7 +55,7 @@
  		newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
  		newBlogs +='<h3>'+responseObject.posts[i].title+'</h3>';
  		newBlogs +='<p><strong>'+responseObject.posts[i].subtitle+'</strong></p>';
- 		newBlogs +='<a href="'+responseObject.posts[i].moreLink+'"></a>';
+ 		newBlogs +='<a href="'+responseObject.posts[i].moreLink+'">Read More</a>';
  		newBlogs += '</li>';
  		}
  		
