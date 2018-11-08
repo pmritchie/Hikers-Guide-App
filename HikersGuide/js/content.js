@@ -10,22 +10,24 @@
  	var responseObject = JSON.parse(xhr.responseText);
 
 // Location Section ===================================================================
- 	var newLocations = '<ul>';
+ 	
  	var locSection = document.querySelector('#locations>.wrapper');
  	
 
  	if(locSection){
- 	for (var i = 0; i < responseObject.locations.length; i++){
+ 		var newLocations = '<ul>';
+		for (var i = 0; i < responseObject.locations.length; i++){
 
- 		newLocations += '<li>'
- 		newLocations += '<a href=""></a>';
- 		newLocations += '<h2>'+ responseObject.locations[i].city+ ', '+responseObject.locations[i].state+'</h2>';
- 		newLocations += '<h4>'+ responseObject.locations[i].title+'</h4>';
- 		newLocations += '<p>' + responseObject.locations[i].text+'</p>';
- 		newLocations += '</li>';
+			newLocations += '<li>'
+			newLocations += '<a href=""></a>';
+			newLocations += '<h2>'+ responseObject.locations[i].city+ ', '+responseObject.locations[i].state+'</h2>';
+			newLocations += '<h4>'+ responseObject.locations[i].title+'</h4>';
+			newLocations += '<p>' + responseObject.locations[i].text+'</p>';
+			newLocations += '</li>';
 		}
+		newLocations += '</ul>';
  		
- 		locSection.innerHTML = newLocations + '</ul>';
+ 		locSection.insertAdjacentHTML('afterbegin', newLocations);
  	}
 // Desitnations Page ==================================================================
 	var newDest = '<ul class="wrapper">';
@@ -53,8 +55,8 @@
 
  		newBlogs += '<li>';
  		newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
- 		newBlogs +='<h3>'+responseObject.posts[i].title+'</h3>';
- 		newBlogs +='<p><strong>'+responseObject.posts[i].subtitle+'</strong></p>';
+ 		newBlogs +='<h4>'+responseObject.posts[i].title+'</h4>';
+ 		newBlogs +='<p>'+responseObject.posts[i].text+'</p>';
  		newBlogs +='<a href="'+responseObject.posts[i].moreLink+'">Read More</a>';
  		newBlogs += '</li>';
  		}
@@ -63,10 +65,11 @@
  	}
 
 // Event Section =======================================================================
- 	var newEvents = '<ul>';
+
  	var eventSection = document.querySelector('#events');
 
  	if(eventSection){
+ 		var newEvents = '<ul>';
  	for(var i =0; i < responseObject.events.length; i++){
 
  		newEvents += '<li>';
