@@ -11,32 +11,32 @@ body {
 	font-weight: 400;
 	color: #888888;
 	background: #111111;
-
+	position: relative;
 }
 h2 {
 	text-transform: uppercase;
-	font:  3.5em/1.5 "Program OT", Arial, sans-serif;
+	font:  2.7em/1.5 "Program OT", Arial, sans-serif;
 	font-style: normal;
 	font-weight: 900;
 	color: #EEEEEE;
 }
 h3 {
 	text-transform: uppercase;
-	font: 2.4em/1.5 "Georgia", Arial, sans-serif;
+	font: 1.6em/1.5 "Georgia", Arial, sans-serif;
 	font-style: bold;
 	font-weight: 500;
 	color: #CCCCCC;
 }
 h4 {
 	text-transform: uppercase;
-	font: 1.8em/1.5 "Program OT", Arial, sans-serif;
+	font: 1.0em/1.5 "Program OT", Arial, sans-serif;
 	font-style: bold;
 	font-weight: 700;
 	color: #AAAAAA;
 }
 h5 {
 	text-transform: uppercase;
-	font: 1.4em/1.5 "Program OT", Arial, sans-serif;
+	font: 1.0em/1.5 "Program OT", Arial, sans-serif;
 	font-style: bold;
 	font-weight: 700;
 	color: #AAAAAA;
@@ -44,12 +44,12 @@ h5 {
 section {
  padding: 2rem;
  position: relative;
- top: -8em;
+ bottom: 15rem;
 }
 
 .wrapper {
 	padding: 3rem;
-	
+	position: relative;
 }
 .wrapper, header {
 	max-width: 960px;
@@ -69,10 +69,10 @@ img {
 header {
 	position: relative;
 	z-index: 2;
-	top: 1em;
 }
 header h1 {
 	float: left;
+
 }
 nav {
 	float: right;
@@ -85,29 +85,34 @@ nav li {
 nav a {
 	display: block;
 	padding: 1rem;
+	border-right: 1px solid;
+	border-color: white;
 }
-
 /* Locations ======================= */
 
-#locations {
+#locations, #destinations, #eventhead, #information, #login{
 	background: url('../images/hikers1001.jpg') no-repeat center center;
 	background-size: cover;
-	height: 100rem;
+	background-attachment: fixed;
+	height: 60rem;
 	width: 100%;
+	top: -8em;
 }
 #locations .wrapper {
+	position: relative;
 	background: #222222;
 	width: 50%;
 	float: right;
-	border-right-color: 4px green;
+	border-right: 1rem solid #1ABCAC;
+	top: 10rem;
 }
 #locations h2 {
-	border-top: 1px #888888;
-	border-bottom:  1px #888888;
+	border-top: .1rem solid #888888;
+	border-bottom: .1rem solid #888888;
+	padding:0rem;
 }
- 
 #locations li {
-	text-overflow: ellipsis;
+	padding: 1rem;
 }
 #locations li:nth-of-type(1n+2) {
 	display: none;
@@ -121,6 +126,8 @@ nav a {
 
 #blogs {
 	background: #222222;
+	position: relative;
+	
 }
 
 #blogs .wrapper {
@@ -128,6 +135,7 @@ nav a {
 }
 #blogs li {	
 	width: calc(100%/3 - 3rem);
+	height: 25rem;
 	padding: 2rem;
 	margin-right: 3rem;
 	margin-bottom: 3rem;
@@ -142,28 +150,51 @@ nav a {
 #blog li:not(:nth-of-type(3n+3)) {
 	margin-right: 3rem;
 }
-#blogs li>p {
+#blogs p {
 	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
- #blogs li>a {
+.readmore {
+ 	padding-right:10px;
+ 	padding-left:10px;
+ 	padding-top: 5px;
+ 	padding-bottom: 5px;
+ 	background: #1ABC9C;
+ 	border-bottom: 5px solid #16A085;
  	text-transform: uppercase;
+ 	font-style: bold;
+	font-weight: 700;
+	color: #EEEEEE;
+
  }
  .loadmore {
- 	clear: both;
- 	border: 2px #888888;
+  	border: .5rem solid #888888;
+ 	background: #222222;
  	text-align: center;
+ 	text-transform: uppercase;
+ 	font-style: bold;
+	font-weight: 700;
+	color: #888888;
  	display: block;
- 	padding: 1rem;
+  	width:25%;
+  	margin-right: auto;
+  	margin-left: auto;
+  	margin-bottom: auto;
+  	margin-top: auto;
+
+ 
  }
+
 /* Sign up ======================= */
 
 #join {
 	background: #16A085 url('../images/climbers.png') no-repeat right 25% bottom 25%;
 	background-size: 60%;
-	position: relative;
 	width: 100%;
 	height: 30rem;
 	padding:0;
+	top: -15rem;
 }
 #join::before {
 	content: "";
@@ -174,7 +205,7 @@ nav a {
 	color: #EEEEEE;
 }
 
-#join .wrapper>p{
+#join .wrapper>p {
 	font-style: italic;
 }
 .signup {
@@ -184,53 +215,106 @@ nav a {
 	text-align: center;
 	width: 100%;
 	position: relative;
-	bottom: -7.5rem;
-}
-}
-/* Events ======================= */
-
-#events li {
-	border: 2px solid green;
-	width: calc(100%/3);
-	padding: 2rem;
-	margin-bottom: 1rem;
-	float: left;
-
-}
-#locations li {
-
-	padding: 1rem;
-}
-/* Hikers ======================= */
-
-#hikers {
-	display: inline-block;
-
+	bottom: -9.5rem;
 }
 /* Extras ======================= */
 #events, #hikers, #about {
 	width: calc(100%/3);
 	float: left;
 }
-/* Destinations ======================= */
-
-#destinations li {
+#events li {
+	padding: 1rem;
+}
+#events li p{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.hikerpic {
+	height: auto;
+	width: 50px;
 	display: inline-block;
-	width: calc(100%/3);
-	padding: 2rem;
+	margin: 1rem;
+}
+#hikers p {
+	display: block;
+
+}
+
+
+
+
+/* Destinations Page======================= */
+#destinations>h2{
 	position: relative;
+	top: 5em;
+}
+#destinations li {
+	width: calc(100%/3 - 3rem);
+	height: 15rem;
+	padding: 2rem;
+	margin-right: 3rem;
+	margin-bottom: 3rem;
+	float: left;
+	background: #222222;
+	position: relative;
+	top: 10rem;
+}
+#destinations li:nth-of-type(3n+4) {
+	clear: left;
+}
+#destinations li:not(:nth-of-type(3n+3)) {
+	margin-right: 3rem;
+}
+#destinations p {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#destinations h2 {
+	font-size: 1.4em;
+}
+/* Events Page======================= */
+#eventhead h2, #eventhead p{
+	text-align: center;
+	position: relative;
+	top: 10rem;
+}
+#eventhead p{
+
+}
+#eventSelection {
+	top: -50rem;
+}
+#dateSelector li, #eventSelection h2{
+	text-align: center;
+}
+#dateSelector li {
+	display: inline-block;
+	padding: 2rem;
+	border: .1rem dashed white;
+	margin-right: 3rem;
+	margin-left: 3rem;
+	border-radius: 25%;
+}
+#eventList {
+	margin-top: 10rem;
+	border: .1rem dashed white;
+	border-radius: 10%;
+}
+/* Connect Page======================= */
+#infoContent{
+	top: 10rem;
+	position: relative;
+	display: inline-block;	
 	float: left;
 }
-/* Connect ======================= */
-#information {
+.form {
+	clear: both;
+	text-align: center;
 	
 }
-.form {
-	float: right;
-}
-#information>label {
-	border: 1px red;
-}
+
 /* Footer ======================= */
 
 footer {

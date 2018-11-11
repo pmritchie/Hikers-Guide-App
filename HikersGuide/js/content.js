@@ -30,7 +30,7 @@
  		locSection.insertAdjacentHTML('afterbegin', newLocations);
  	}
 // Desitnations Page ==================================================================
-	var newDest = '<ul class="wrapper">';
+	var newDest = '<ul>';
 	var locPage = document.querySelector('#destinations');
 
 	if(locPage){
@@ -57,7 +57,7 @@
  		newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
  		newBlogs +='<h4>'+responseObject.posts[i].title+'</h4>';
  		newBlogs +='<p>'+responseObject.posts[i].text+'</p>';
- 		newBlogs +='<a href="'+responseObject.posts[i].moreLink+'">Read More</a>';
+ 		newBlogs +='<p><a href="" class="readmore">Read More</a></p>';
  		newBlogs += '</li>';
  		}
  		
@@ -90,7 +90,7 @@
  	for(var i =0; i < responseObject.hikers.length; i++){
 
  		newHikers += '<li>';
- 		newHikers += '<p><img src="'+responseObject.hikers[i].imageURL+'" alt="picture"></p>';
+ 		newHikers += '<p class="hikerpic"><img src="'+responseObject.hikers[i].imageURL+'" alt="picture"></p>';
  		newHikers += '<p>'+responseObject.hikers[i].lastname+', '+responseObject.hikers[i].firstname+'</p>';
  		newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
  		newHikers += '</li>';
@@ -118,14 +118,14 @@
 	
 	var eventSelection = document.querySelector('#eventSelection')
 	if(eventSelection){
-		var eventSelector = '<ul>';
+		var eventSelector = '<ul id="dateSelector">';
 		for (var i = 0; i < responseObject.events.length; i++) {
 			
 			eventSelector +=	'<li><button>'+responseObject.events[i].date+'</button></li>'
 
 		}
 		eventSelector += '</ul>';
-		eventSelector += '<ul>';
+		eventSelector += '<ul id="eventList">';
 		for (var i = 0; i < responseObject.events.length; i++) {
 			eventSelector += '<li>';
 			eventSelector += '<h2>'+responseObject.events[i].title+'</h2>';
