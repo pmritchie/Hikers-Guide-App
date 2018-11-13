@@ -26,14 +26,13 @@
 			newLocations += '</li>';
 		}
 		newLocations += '</ul>';
- 		
  		locSection.insertAdjacentHTML('afterbegin', newLocations);
  	}
 // Desitnations Page ==================================================================
-	var newDest = '<ul>';
 	var locPage = document.querySelector('#destinations');
 
 	if(locPage){
+		var newDest = '<ul>';
 		for (var i = 0; i < responseObject.locations.length; i++){
 			newDest += '<li>'
  			newDest += '<a href=""></a>';
@@ -42,26 +41,26 @@
  			newDest += '<p>' + responseObject.locations[i].text+'</p>';
  			newDest += '</li>';
 		}
-
-		locPage.insertAdjacentHTML('beforeend', newDest + '</ul>');
+		newDest += '</ul>';
+		locPage.insertAdjacentHTML('beforeend', newDest);
 	}
 
 // Blog Section =======================================================================
- 	var newBlogs ='<ul>';
  	var blogSection = document.querySelector('#blogs>.wrapper');
 
  	if(blogSection){
- 	for(var i =0; i < responseObject.posts.length; i++){
+ 		var newBlogs ='<ul>';
+ 		for(var i =0; i < responseObject.posts.length; i++){
 
- 		newBlogs += '<li>';
- 		newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
- 		newBlogs +='<h4>'+responseObject.posts[i].title+'</h4>';
- 		newBlogs +='<p>'+responseObject.posts[i].text+'</p>';
- 		newBlogs +='<p><a href="" class="readmore">Read More</a></p>';
- 		newBlogs += '</li>';
+ 			newBlogs += '<li>';
+ 			newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
+ 			newBlogs +='<h4>'+responseObject.posts[i].title+'</h4>';
+ 			newBlogs +='<p>'+responseObject.posts[i].text+'</p>';
+ 			newBlogs +='<p><a href="" class="readmore">Read More</a></p>';
+ 			newBlogs += '</li>';
  		}
- 		
- 		blogSection.innerHTML =  newBlogs + '</ul>';
+ 		newBlogs += '</ul>';
+ 		blogSection.innerHTML =  newBlogs;
  	}
 
 // Event Section =======================================================================
@@ -70,32 +69,34 @@
 
  	if(eventSection){
  		var newEvents = '<ul>';
- 	for(var i =0; i < responseObject.events.length; i++){
+ 		for(var i =0; i < responseObject.events.length; i++){
 
- 		newEvents += '<li>';
- 		newEvents += '<time datetime="'+responseObject.events[i].date+'">'+responseObject.events[i].date+'</time>';
- 		newEvents += '<h4>'+responseObject.events[i].title+'</h4>';
- 		newEvents += '<p>'+responseObject.events[i].text+'</p>';
- 		newEvents += '</li>';
+ 			newEvents += '<li>';
+ 			newEvents += '<time datetime="'+responseObject.events[i].date+'">'+responseObject.events[i].date+'</time>';
+ 			newEvents += '<h4>'+responseObject.events[i].title+'</h4>';
+ 			newEvents += '<p>'+responseObject.events[i].text+'</p>';
+ 			newEvents += '</li>';
  		}
- 		
- 		eventSection.insertAdjacentHTML('beforeend', newEvents + '</ul>');
+ 		newEvents += '</ul>';
+ 		eventSection.insertAdjacentHTML('beforeend', newEvents);
  	}
 
 // Hikers Section =======================================================================
  	
  	var hikers = document.querySelector('#hikers');
- 	var newHikers = '<ul>';
+ 	
  	if(hikers){
- 	for(var i =0; i < responseObject.hikers.length; i++){
+ 		var newHikers = '<ul>';
+ 		for(var i =0; i < responseObject.hikers.length; i++){
 
- 		newHikers += '<li>';
- 		newHikers += '<p class="hikerpic"><img src="'+responseObject.hikers[i].imageURL+'" alt="picture"></p>';
- 		newHikers += '<p>'+responseObject.hikers[i].lastname+', '+responseObject.hikers[i].firstname+'</p>';
- 		newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
- 		newHikers += '</li>';
- 	}
- 	hikers.insertAdjacentHTML('beforeend', newHikers + '</ul>');
+ 			newHikers += '<li>';
+ 			newHikers += '<p class="hikerpic"><img src="'+responseObject.hikers[i].imageURL+'" alt="picture"></p>';
+ 			newHikers += '<p>'+responseObject.hikers[i].lastname+', '+responseObject.hikers[i].firstname+'</p>';
+ 			newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
+ 			newHikers += '</li>';
+ 		}
+ 		newHikers += '</ul>';
+ 		hikers.insertAdjacentHTML('beforeend', newHikers);
  }
 		 
 		 
@@ -103,7 +104,7 @@
 // about Section =======================================================================
 	var about = document.querySelector('#about');
 	if(about){
-	var aboutSection ='';
+		var aboutSection ='';
 
 		aboutSection += '<h3>About</h3>';
 		aboutSection += '<p>'+responseObject.about.title+'</p>';
@@ -121,7 +122,7 @@
 		var eventSelector = '<ul id="dateSelector">';
 		for (var i = 0; i < responseObject.events.length; i++) {
 			
-			eventSelector +=	'<li><button>'+responseObject.events[i].date+'</button></li>'
+			eventSelector +=	'<li><button><time datetime="'+responseObject.events[i].date+'">'+responseObject.events[i].date+'</button></li>'
 
 		}
 		eventSelector += '</ul>';
@@ -139,8 +140,10 @@
 			eventSelector += '<dd>'+responseObject.events[i].location+', '+responseObject.events[i].state+'</dd>';
 			eventSelector += '</dl>';
 			eventSelector += '<button>DETAILS</button>';
+			eventSelector += '</li>';
 		}
-		eventSelection.insertAdjacentHTML('beforeend', eventSelector + '</ul>')
+		eventSelector += '</ul>';
+		eventSelection.insertAdjacentHTML('beforeend', eventSelector)
 	}
 
 	var events
