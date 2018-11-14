@@ -12,7 +12,6 @@ body {
 	color: #888888;
 	background: #111111;
 	position: relative;
-
 	background: url('../images/hikers1001.jpg') no-repeat center center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -29,21 +28,18 @@ h2 {
 h3 {
 	text-transform: uppercase;
 	font: 1.6em/1.5 "Georgia", Arial, sans-serif;
-	font-style: bold;
 	font-weight: 500;
 	color: #CCCCCC;
 }
 h4 {
 	text-transform: uppercase;
 	font: 1.0em/1.5 "Program OT", Arial, sans-serif;
-	font-style: bold;
 	font-weight: 700;
 	color: #AAAAAA;
 }
 h5 {
 	text-transform: uppercase;
 	font: 1.0em/1.5 "Program OT", Arial, sans-serif;
-	font-style: bold;
 	font-weight: 700;
 	color: #AAAAAA;
 }
@@ -93,7 +89,6 @@ label:after {
 	content: ":";
 }
 input {
-	margin:;
 	border-radius: 30px;
 }
 /* Header ======================= */
@@ -103,6 +98,14 @@ header {
 }
 header h1 {
 	float: left;
+	width: 10%;
+	margin-top: 2em;
+}
+nav img {
+	width: 40%;
+	top: 1rem;
+	position: relative;
+	padding-right: 1rem;
 }
 nav {
 	float: right;
@@ -125,14 +128,16 @@ nav a {
 /* Locations ======================= */
 
 #locations{
-	min-height: 100vh;
+	min-height: 70vh;
+	max-height: 100vh;
 	width: 100%;
 }
 #locations .wrapper {
 	position: relative;
 	background: #222222;
-	width: 50%;
+	width: 25%;
 	float: right;
+	right: 10rem;
 	border-right: 1rem solid #1ABCAC;
 	top: 10rem;
 }
@@ -141,16 +146,41 @@ nav a {
 	border-bottom: .1rem solid #888888;
 	padding:0rem;
 }
-#locations li {
-	padding: 1rem;
-}
-#locations li:nth-of-type(1n+2) {
+#locationslist li:nth-of-type(1n+2) {
 	display: none;
 }
+.pagination {
+	position: absolute;
+	top: calc(50% + 2.5rem);
+	right: 3.25rem;
+}
 .pagination button {
+	position: relative;
 	width: 2rem;
 	height: 2rem;
 	border-radius: 50%;
+	text-indent: -9999px;
+	right: -11rem;
+	top: -12rem;
+	opacity: 0.5;
+}
+.pagination button:hover {
+	opacity: 1.0;
+}
+#previous, #next {
+	position: relative;
+	top: calc(25% - 2.5rem);
+	width: 4rem;
+	height: 4rem;
+
+}
+#previous {
+	right: 80rem;
+	top: -15rem;
+}
+#next {
+	left: 10rem;
+	top: -28rem;
 }
 /* Blog ======================= */
 
@@ -192,17 +222,14 @@ nav a {
  	background: #1ABC9C;
  	border-bottom: 5px solid #16A085;
  	text-transform: uppercase;
- 	font-style: bold;
 	font-weight: 700;
 	color: #EEEEEE;
-
  }
  .loadmore {
   	border: .5rem solid #888888;
  	background: #222222;
  	text-align: center;
  	text-transform: uppercase;
- 	font-style: bold;
 	font-weight: 700;
 	color: #888888;
  	display: block;
@@ -211,7 +238,6 @@ nav a {
   	margin-left: auto;
   	margin-bottom: auto;
   	margin-top: auto;
- 
  }
 
 /* Sign up ======================= */
@@ -263,16 +289,22 @@ nav a {
 	overflow: hidden;
 	white-space: nowrap;
 }
+#hikers p:nth-of-type(1n+2) {
+	position: relative;
+	float: right;
+	clear: right;
+	top: 2em;
+}
 .hikerpic {
 	height: auto;
-	width: 50px;
+	width: 75px;
 	display: inline-block;
 	margin: 1rem;
 }
-#hikers p {
-	display: block;
-
+#about p {
+	padding: 1rem;
 }
+
 /* Destinations Page ======================= */
 #destinations {
 	height: 100vh;
@@ -307,24 +339,31 @@ nav a {
 	white-space: nowrap;
 }
 /* Events Page ======================= */
-
+#eventSelection {
+	width: 80em;
+	margin: 0 auto;
+}
 #eventhead h2, #eventhead p{
 	text-align: center;
 }
-#dateSelector li, #eventSelection h2{
+#eventSelection h2{
 	text-align: center;
-	padding: 5rem;
-
+}
+#dateSelector {
+  	width: 70em;
+  	margin-right: auto;
+  	margin-left: auto;
 }
 #dateSelector li {
 	display: inline-block;
+	text-align: center;
+	margin: 2em;
 	padding: 2rem;
 	border: .1rem dashed white;
-	margin-right: 3rem;
-	margin-left: 3rem;
-	margin-bottom: 3rem;
-	border-radius: 25%;
+	border-radius: 30px;
 	background-color: grey;
+
+
 }
 #eventList li {
 	margin-bottom: 1rem;
@@ -332,6 +371,7 @@ nav a {
 	border-radius: 10%;
 	background-color: #CCCCCC;
 	opacity: 0.90;
+	top: 10em;
 }
 
 #eventList h2 {
@@ -350,29 +390,48 @@ nav a {
 
 /* Connect Page======================= */
 #information {
-	height: 90vh;
+	height: 85vh;
 	width: 100%;
 	background-color: #CCCCCC;
 	opacity: .90;
+	margin: 0em auto;
 }
 #info, #form {
-	float: left;
-	height: 15em;
+	display: block;
 	width: 30em;
-	margin-top: 10em;
-	
+	float: left;
+	margin: 5em auto;
+	right: -10em;
+	position: relative;
+}
 
-}
-#info {
-	margin-left: 20em;
-}
-#form {
-	margin-right: 0;
-}	
 #send {
 	text-align: center;
 	border-radius: 30px;
 	position: relative;
+}
+#infofooter {
+	bottom: -30rem;
+}
+#form input {
+	width: 40rem;
+	height: 4rem;
+	margin: .5rem;
+	padding-left: 2rem;
+}
+#message{
+	height: 8rem
+}
+#send {
+	width: 14rem;
+	height: 4rem;
+	margin: .5rem;
+	padding-left: 2rem;
+	text-align: left;
+}
+#info a {
+	color: #1ABCAC;
+	text-decoration: underline
 }
 /* Login Page======================= */
 #login {
@@ -402,7 +461,9 @@ nav a {
 	position: relative;
 	float: right;
 	display: block;
-	margin: 2em;	
+	margin: 2em;
+	color: #1ABCAC;
+	text-decoration: underline;
 }
 /* Footer ======================= */
 footer {
@@ -434,6 +495,12 @@ footer p {
 	top: 2rem;
 	margin-right: 4em;
 	float: right;
+}
+.social li {
+	opacity: 0.5;
+}
+.social li:hover {
+	opacity: 1.0;
 }
 
 

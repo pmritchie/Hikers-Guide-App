@@ -15,7 +15,7 @@
  	
 
  	if(locSection){
- 		var newLocations = '<ul>';
+ 		var newLocations = '<ul id="locationslist">';
 		for (var i = 0; i < responseObject.locations.length; i++){
 
 			newLocations += '<li>'
@@ -86,7 +86,7 @@
  	var hikers = document.querySelector('#hikers');
  	
  	if(hikers){
- 		var newHikers = '<ul>';
+ 		var newHikers = '<ul id="hikerslist">';
  		for(var i =0; i < responseObject.hikers.length; i++){
 
  			newHikers += '<li>';
