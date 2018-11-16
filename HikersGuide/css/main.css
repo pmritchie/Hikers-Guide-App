@@ -15,7 +15,6 @@ body {
 	background: url('../images/hikers1001.jpg') no-repeat center center;
 	background-size: cover;
 	background-attachment: fixed;
-	
 	width: 100%;
 }
 h2 {
@@ -190,24 +189,30 @@ nav a {
 }
 
 #blogs .wrapper {
-	padding-bottom: 0;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 }
 #blogs li {	
 	width: calc(100%/3 - 3rem);
-	height: 25rem;
 	padding: 2rem;
 	margin-right: 3rem;
 	margin-bottom: 3rem;
-	float: left;
 	background: #111111;
 	position: relative;
 	top: -10rem;
+	display: inline-grid;
+	
 }
-#blog li:nth-of-type(3n+4) {
-	clear: left;
+.image {
+	height: 15rem;
+	overflow: hidden;
 }
-#blog li:not(:nth-of-type(3n+3)) {
-	margin-right: 3rem;
+.image img {
+	float: right;
+    height: 20rem;
+    width: auto;
+    clear: both;
+	 
 }
 #blogs p {
 	text-overflow: ellipsis;
@@ -252,7 +257,6 @@ nav a {
 #join::before {
 	content: "";
 	display: block;
-	
 }
 #join .wrapper {
 	color: #EEEEEE;
@@ -284,21 +288,31 @@ nav a {
 #events li {
 	padding: 1rem;
 }
-#events li p{
+#events time {
+	float: left;
+	clear: both;
+	padding: 1rem;
+	background: white;
+	width: 5rem;
+	height: 6rem;
+	margin-bottom: 1rem;
+}
+#events li p {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
-#hikers p:nth-of-type(1n+2) {
-	position: relative;
-	float: right;
-	clear: right;
-	top: 2em;
+#hikerslist>li {
+	padding: 1rem 1rem 1rem 0;
+	margin: 0 0 3rem 0;
 }
-.hikerpic {
-	height: auto;
-	width: 75px;
-	display: inline-block;
+#hikerslist h4 {
+	padding-top: 2rem;
+}
+.hikerpic img {
+	float: left;
+	height: 6rem;
+	width: 6rem;
 	margin: 1rem;
 }
 #about p {
@@ -340,17 +354,17 @@ nav a {
 }
 /* Events Page ======================= */
 #eventSelection {
-	width: 80em;
+	width: 100%;
 	margin: 0 auto;
 }
-#eventhead h2, #eventhead p{
+#eventhead h2, #eventhead p {
 	text-align: center;
 }
-#eventSelection h2{
+#eventSelection h2 {
 	text-align: center;
 }
 #dateSelector {
-  	width: 70em;
+  	width: 100%;
   	margin-right: auto;
   	margin-left: auto;
 }
@@ -360,28 +374,32 @@ nav a {
 	margin: 2em;
 	padding: 2rem;
 	border: .1rem dashed white;
-	border-radius: 30px;
+	border-radius: 10%;
 	background-color: grey;
-
-
+}
+#eventList {
+	border: .1rem dashed white;
+	background-color: black;
+	opacity: .9;
+	border-radius: 10%;
 }
 #eventList li {
-	margin-bottom: 1rem;
-	border: .1rem dashed white;
-	border-radius: 10%;
-	background-color: #CCCCCC;
-	opacity: 0.90;
+	margin: 1rem;
+	border-bottom: .1rem dashed white;
 	top: 10em;
 }
-
+#eventList dd {
+	width: 50%;
+	margin-right: 0;
+} 
 #eventList h2 {
 	padding: 1rem;
 }
-#eventList p{
+#eventList p {
 	text-align: center;
 }
 
-#eventList button{
+#eventList button {
 	width: 25%;
 	float: right;
 	clear: left;
@@ -394,44 +412,45 @@ nav a {
 	width: 100%;
 	background-color: #CCCCCC;
 	opacity: .90;
-	margin: 0em auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10rem;
 }
-#info, #form {
-	display: block;
-	width: 30em;
-	float: left;
-	margin: 5em auto;
-	right: -10em;
-	position: relative;
+#info{
+	width: 45rem;
+	margin-right: 10rem;
+}
+#info p{
+	margin-bottom: 1rem;
+}
+#contact{
+	width: 30rem;
+	min-width: 30rem;
+}
+#contact-form p{
+	margin-bottom: 1rem; 
+}
+#contact-form input, #contact button{
+	padding: .5rem;
+}
+#contact button{
+	border-radius: 20px;
+} 
+
+#contact-form fieldset p input{
+	display:block;
+	width: 100%;
 }
 
-#send {
-	text-align: center;
-	border-radius: 30px;
-	position: relative;
+.label {
+	display: none;
+}
+.error, .emailReg {
+	width: 100%;
+	text-align: left;
 }
 #infofooter {
 	bottom: -30rem;
-}
-#form input {
-	width: 40rem;
-	height: 4rem;
-	margin: .5rem;
-	padding-left: 2rem;
-}
-#message{
-	height: 8rem
-}
-#send {
-	width: 14rem;
-	height: 4rem;
-	margin: .5rem;
-	padding-left: 2rem;
-	text-align: left;
-}
-#info a {
-	color: #1ABCAC;
-	text-decoration: underline
 }
 /* Login Page======================= */
 #login {

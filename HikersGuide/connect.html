@@ -29,31 +29,35 @@
 				<dl>
 					<dt>Address</dt>
 					<dd>345 Rocky St. Devner, CO</dd>
-					<dt>Call Free:</dt>
+					<dt>Call Free</dt>
 					<dd>(123) 555-1234</dd>
-					<dt>FAX:</dt>
+					<dt>FAX</dt>
 					<dd>(123) 555-1235</dd>
-					<dt>Office Hours:</dt>
+					<dt>Office Hours</dt>
 					<dd>Mon - Sat 8:00am - 6:00pm</dd>
 					<dt>Email</dt>
 					<dd><a href="mailto:JohJohns@hikersguide.com">JoeJohns@hikersguide.com</a></dd>
 				</dl>
 			</div>
 		<!-- Contact Form -->
-			<div id='form'>
-			<form method="post">
-				<h2>Contact Form</h2>
+			<div id='contact'>
+			<h2>Contact Form</h2>
+			<form method="post" id="contact-form">
 				<fieldset>
-					<p>
+					<p>	
+						<label for="name" class="label">Your Name</label>
 						<input type="text" name="name" id="name" placeholder="Your Name *">
 					</p>
 					<p>
+						<label for="email" class="label">Email</label>
 						<input type="email" name="email" id="email" placeholder="E-mail *">
 					</p>		
 					<p>
-						<input type="text" name="phone" id="phone" placeholder="Phone" >
+						<label for="phone" class="label">Phone Number</label>
+						<input type="text" name="phone" id="phone" placeholder="Phone Number" >
 					</p>			
 					<p>
+						<label for="message" class="label">Message</label>
 						<input type="text" name="message" id="message" placeholder="Message *">
 					</p>
 				</fieldset>
@@ -77,5 +81,6 @@
 			</ul>
 		</footer>
 		<script src="js/content.js"></script>
+		<script src="js/events.js"></script>
 	</body>
 </html>

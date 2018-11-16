@@ -53,7 +53,7 @@
  		for(var i =0; i < responseObject.posts.length; i++){
 
  			newBlogs += '<li>';
- 			newBlogs +='<p><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
+ 			newBlogs +='<p class="image"><img src="'+ responseObject.posts[i].imageURL+'" alt="picture"></p>';
  			newBlogs +='<h4>'+responseObject.posts[i].title+'</h4>';
  			newBlogs +='<p>'+responseObject.posts[i].text+'</p>';
  			newBlogs +='<p><a href="" class="readmore">Read More</a></p>';
@@ -91,7 +91,7 @@
 
  			newHikers += '<li>';
  			newHikers += '<p class="hikerpic"><img src="'+responseObject.hikers[i].imageURL+'" alt="picture"></p>';
- 			newHikers += '<p>'+responseObject.hikers[i].lastname+', '+responseObject.hikers[i].firstname+'</p>';
+ 			newHikers += '<h4>'+responseObject.hikers[i].lastname+', '+responseObject.hikers[i].firstname+'</h4>';
  			newHikers += '<p>'+responseObject.hikers[i].city+', '+responseObject.hikers[i].state+'</p>';
  			newHikers += '</li>';
  		}
@@ -122,7 +122,7 @@
 		var eventSelector = '<ul id="dateSelector">';
 		for (var i = 0; i < responseObject.events.length; i++) {
 			
-			eventSelector +=	'<li><button><time datetime="'+responseObject.events[i].date+'">'+responseObject.events[i].date+'</button></li>'
+			eventSelector +=	'<li><button class="dateBtn"><time datetime="'+responseObject.events[i].date+'">'+responseObject.events[i].date+'</button></li>'
 
 		}
 		eventSelector += '</ul>';
@@ -135,11 +135,11 @@
 			eventSelector += '<dt>Sponser</dt>';
 			eventSelector += '<dd>'+responseObject.events[i].sponsor+'</dd>';
 			eventSelector += '<dt>Date</dt>';
-			eventSelector += '<dd>'+responseObject.events[i].date+'</dd>';
+			eventSelector += '<dd class="eventDate">'+responseObject.events[i].date+'</dd>';
 			eventSelector += '<dt>Location</dt>';
 			eventSelector += '<dd>'+responseObject.events[i].location+', '+responseObject.events[i].state+'</dd>';
-			eventSelector += '</dl>';
 			eventSelector += '<button>DETAILS</button>';
+			eventSelector += '</dl>';
 			eventSelector += '</li>';
 		}
 		eventSelector += '</ul>';
