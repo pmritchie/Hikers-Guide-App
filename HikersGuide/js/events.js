@@ -43,9 +43,9 @@ function emailValidate(event) {
 			parent.insertAdjacentHTML('beforeend', message);
 		}
 	} else {
-		parent.removeChild(parent.querySelector('.error'));
+		parent.removeChild(parent.querySelector('.emailReg'));
 	}
-	alert('test')
+	
 
 	
 }
